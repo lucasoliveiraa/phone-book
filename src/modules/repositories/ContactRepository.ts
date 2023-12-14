@@ -1,12 +1,7 @@
 import { Contact } from "../model/Contact";
+import { IContactRepository, ICreateContactDTO } from "./IContactRepository";
 
-interface ICreateContactDTO {
-  name: string;
-  lastName: string;
-  phoneNumber: string;
-}
-
-class ContactRepository {
+class ContactRepository implements IContactRepository {
   private contacts: Contact[];
   constructor() {
     this.contacts = [];

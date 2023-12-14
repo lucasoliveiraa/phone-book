@@ -1,4 +1,4 @@
-import { ContactRepository } from "../repositories/ContactRepository";
+import { IContactRepository } from "../../repositories/IContactRepository";
 
 interface IRequest {
   name: string;
@@ -6,8 +6,8 @@ interface IRequest {
   phoneNumber: string;
 }
 
-class CreateContactService {
-  constructor(private contactRepository: ContactRepository) {}
+class CreateContactUseCase {
+  constructor(private contactRepository: IContactRepository) {}
 
   execute({ name, lastName, phoneNumber }: IRequest): void {
     const phoneNumberAlreadyExists =
@@ -21,4 +21,4 @@ class CreateContactService {
   }
 }
 
-export { CreateContactService };
+export { CreateContactUseCase };
