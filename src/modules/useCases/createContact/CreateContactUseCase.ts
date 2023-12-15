@@ -1,3 +1,4 @@
+import { AppError } from "../../../errors/AppError";
 import { IContactRepository } from "../../repositories/IContactRepository";
 
 interface IRequest {
@@ -14,7 +15,7 @@ class CreateContactUseCase {
       this.contactRepository.findByPhoneNumber(phoneNumber);
 
     if (phoneNumberAlreadyExists) {
-      throw new Error("PhoneNumber Already exists!");
+      throw new AppError("PhoneNumber Already exists!");
     }
 
     this.contactRepository.create({ name, lastName, phoneNumber });

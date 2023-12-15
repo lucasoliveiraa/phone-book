@@ -1,4 +1,4 @@
-import { Contact } from "../../model/Contact";
+import { AppError } from "../../../errors/AppError";
 import { IContactRepository } from "../../repositories/IContactRepository";
 
 class DeleteContactUseCase {
@@ -8,7 +8,7 @@ class DeleteContactUseCase {
     const contactAlreadyExists = this.contactRepository.findById(id);
 
     if (!contactAlreadyExists) {
-      throw new Error("Contact no exists!");
+      throw new AppError("Contact not found!");
     }
 
     this.contactRepository.delete(id);
