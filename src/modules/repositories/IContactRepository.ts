@@ -8,7 +8,10 @@ interface ICreateContactDTO {
 
 interface IContactRepository {
   findByPhoneNumber(phoneNumber: string): Contact | undefined;
+  findById(id: string): Contact | undefined;
   create({ name, lastName, phoneNumber }: ICreateContactDTO): void;
+  list(): Contact[];
+  delete(id: string): void;
 }
 
 export { IContactRepository, ICreateContactDTO };

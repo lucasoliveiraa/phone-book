@@ -1,12 +1,20 @@
 import { Router } from "express";
-import { ContactRepository } from "../modules/repositories/ContactRepository";
 import { createContactController } from "../modules/useCases/createContact";
+import { listContactController } from "../modules/useCases/listContact";
+import { deleteContactController } from "../modules/useCases/deleteContact";
 
 const contactRoutes = Router();
-const contactRepository = new ContactRepository();
 
 contactRoutes.post("/", (request, response) => {
   return createContactController.handle(request, response);
+});
+
+contactRoutes.get("/", (request, response) => {
+  return listContactController.handle(request, response);
+});
+
+contactRoutes.delete("/:id", (request, response) => {
+  return deleteContactController.handle(request, response);
 });
 
 export { contactRoutes };
