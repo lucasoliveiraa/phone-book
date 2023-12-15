@@ -3,8 +3,18 @@ import { IContactRepository, ICreateContactDTO } from "./IContactRepository";
 
 class ContactRepository implements IContactRepository {
   private contacts: Contact[];
-  constructor() {
+
+  private static INSTANCE: ContactRepository;
+
+  private constructor() {
     this.contacts = [];
+  }
+
+  public static getInstance(): ContactRepository {
+    if (!ContactRepository.INSTANCE) {
+      ContactRepository.INSTANCE = new ContactRepository();
+    }
+    return ContactRepository.INSTANCE;
   }
 
   create({ name, lastName, phoneNumber }: ICreateContactDTO): void {
@@ -24,6 +34,19 @@ class ContactRepository implements IContactRepository {
       (contact) => contact.phoneNumber === phoneNumber
     );
     return contact;
+  }
+
+  findById(id: string): Contact | undefined {
+    const contact = this.contacts.find((contact) => contact.id === id);
+    return contact;
+  }
+
+  delete(id: string): void {
+    return this.delete(id);
+  }
+
+  list(): Contact[] {
+    return this.contacts;
   }
 }
 
