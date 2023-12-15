@@ -42,7 +42,11 @@ class ContactRepository implements IContactRepository {
   }
 
   delete(id: string): void {
-    return this.delete(id);
+    const repositoryIndex = this.contacts.findIndex(
+      (repository) => repository.id === id
+    );
+
+    this.contacts.splice(repositoryIndex, 1);
   }
 
   list(): Contact[] {
