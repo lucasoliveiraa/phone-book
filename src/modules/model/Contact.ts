@@ -1,11 +1,11 @@
-import { v4 as uuidV4 } from 'uuid';
+import { v4 as uuidV4 } from "uuid";
 
 class Contact {
   id?: string;
   name: string;
   lastName: string;
   phoneNumber: string;
-  created_at: Date;
+  created_at?: Date;
 
   constructor() {
     if (!this.id) {
@@ -14,4 +14,4 @@ class Contact {
   }
 }
 
-export { Contact }
+export { Contact };

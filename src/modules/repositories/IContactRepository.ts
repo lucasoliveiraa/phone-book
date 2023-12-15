@@ -1,6 +1,7 @@
 import { Contact } from "../model/Contact";
 
 interface ICreateContactDTO {
+  id?: string;
   name: string;
   lastName: string;
   phoneNumber: string;
@@ -12,6 +13,7 @@ interface IContactRepository {
   create({ name, lastName, phoneNumber }: ICreateContactDTO): void;
   list(): Contact[];
   delete(id: string): void;
+  update({ name, lastName, phoneNumber, id }: Contact): Contact | null;
 }
 
 export { IContactRepository, ICreateContactDTO };

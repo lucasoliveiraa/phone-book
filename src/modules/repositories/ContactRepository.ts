@@ -52,6 +52,34 @@ class ContactRepository implements IContactRepository {
   list(): Contact[] {
     return this.contacts;
   }
+
+  update({
+    name,
+    lastName,
+    phoneNumber,
+    id,
+  }: ICreateContactDTO): Contact | null {
+    const updateUser = Object.assign({
+      name,
+      lastName,
+      phoneNumber,
+    });
+
+    const repositoryIndex = this.contacts.findIndex(
+      (repository) => repository.id === id
+    );
+
+    if (repositoryIndex !== -1) {
+      this.contacts[repositoryIndex] = {
+        ...this.contacts[repositoryIndex],
+        ...updateUser,
+      };
+
+      return this.contacts[repositoryIndex];
+    }
+
+    return null;
+  }
 }
 
 export { ContactRepository };
