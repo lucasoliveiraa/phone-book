@@ -1,0 +1,156 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "PhoneBook Documentation",
+    "description": "This is an API PhoneBook",
+    "version": "1.0.0",
+    "contact": {
+      "email": "lucasjackcosta18@gmail.com"
+    }
+  },
+  "paths": {
+    "/": {
+      "post": {
+        "tags": ["Contact"],
+        "summary": "Create a contact",
+        "description": "Create a new contact",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "lastName": {
+                    "type": "string"
+                  },
+                  "phoneNumber": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "name": "Contact name sample",
+                  "lastName": "Last name sample",
+                  "phoneNumber": "Phone number sample sample"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Contact already exists"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Contact"],
+        "summary": "List all contacts",
+        "description": "List all contacts",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "lastName": {
+                        "type": "string"
+                      },
+                      "phoneNumber": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{id}": {
+      "put": {
+        "tags": ["Contact"],
+        "summary": "Update contact",
+        "description": "Update contact",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Contact id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "lastName": {
+                    "type": "string"
+                  },
+                  "phoneNumber": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "name": "Contact name sample",
+                  "lastName": "Last name sample",
+                  "phoneNumber": "Phone number sample sample"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Contact already exists"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Contact"],
+        "summary": "Delete contact",
+        "description": "Delete contact",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Contact id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleted"
+          }
+        }
+      }
+    }
+  }
+}
