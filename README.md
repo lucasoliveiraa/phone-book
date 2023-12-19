@@ -8,6 +8,13 @@
 $ http://localhost:3333/api-docs
 ```
 
+## ✔️ Unit test 
+
+```bash
+# Run command
+$ yarn test
+```
+
 ## 🚀 How to run the project
 
 ```bash
