@@ -1,20 +1,24 @@
-## 💻 Projeto
+## 💻 Project
 
-**Backend** - Projeto proposto pela empresa SOAP, para um desafio de uma lista telefonica.
+**Backend** - Project proposed by the company SOAP, for a challenge of the an list phone.
 
-## 🚀 Como rodar o projeto
+## 📚 API document swagger
+
+$ http://localhost:3333/api-docs
+
+## 🚀 How to run the project
 
 ```bash
-# Clone este repositório
+# Clone this repository
 $ git clone https://github.com/lucasoliveiraa/phone-book.git
 
-# Instale as dependências
+# Install dependencies
 $ yarn
 
-# Execute o comando
+# Run command
 $ yarn dev
 
-# Rota criar
+# Route create
 POST: http://localhost:3333/
 Body: {
   "name": "NAME",
@@ -22,10 +26,10 @@ Body: {
   "phoneNumber": "PHONENUMBER"
 }
 
-# Rota listar
+# Route list
 GET: http://localhost:3333/
 
-# Rota alterar
+# Route update
 PUT: http://localhost:3333/:id
 Body: {
   "name": "NAME",
@@ -33,6 +37,6 @@ Body: {
   "phoneNumber": "PHONENUMBER"
 }
 
-# Rota deletar
+# Route delete
 DELETE: http://localhost:3333/:id
 ```
