@@ -4,7 +4,9 @@
 
 ## 📚 API document swagger
 
+```bash
 $ http://localhost:3333/api-docs
+```
 
 ## 🚀 How to run the project
 
